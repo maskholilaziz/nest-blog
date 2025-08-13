@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package user;
+
+import "user-model.proto";
+
+service UserService {
+  rpc FindUsers(FindUsersRequest) returns (FindUsersResponse) {};
+  rpc FindOneUserByPreferredUsername(FindOneUserByPreferredUsernameRequest) returns (FindOneUserByPreferredUsernameResponse) {};
+  rpc FindEncryptionProvider(FindEncryptionProviderRequest) returns (FindEncryptionProviderResponse) {};
+  rpc FindUserOrganization(FindUserOrganizationRequest) returns (FindUserOrganizationResponse) {};
+  rpc FindNotificationPreferences(FindNotificationPreferencesRequest) returns (FindNotificationPreferencesResponse) {};
+  rpc FindRelatedUserId(FindRelatedUserIdRequest) returns (FindRelatedUserIdResponse) {};
+  rpc BulkFindUsers(BulkFindUsersRequest) returns (BulkFindUsersResponse) {};
+  rpc BulkUpdateUsers(BulkUpdateUsersRequest) returns (BulkUpdateUsersResponse) {};
+  rpc BulkFindUserIds(BulkFindUserIdsRequest) returns (BulkFindUserIdsResponse) {};
+}

@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+package user;
+
+message User {
+  string id = 1;
+  string id_number = 2;
+  string id_type = 3;
+  string name = 4;
+  string nickname = 5;
+  string preferred_username = 6;
+  string picture = 7;
+  string email = 8;
+  string email_verified = 9;
+  string gender = 10;
+  string birthdate = 11;
+  string phone_number = 12;
+  string phone_number_verified = 13;
+  string address = 14;
+  string place_of_birth = 15;
+  string nationalities = 16;
+  string postal_code = 17;
+  string city = 18;
+  int64 created_at = 19;
+  int64 updated_at = 20;
+  string status = 21;
+  string enc_provider = 22;
+  string id_number_hash = 23;
+  string email_hash = 24;
+  string email_verified_hash = 25;
+  string phone_number_hash = 26;
+  string phone_number_verified_hash = 27;
+}
+
+message FindUsersRequest {
+  optional string id = 1;
+  optional string id_number = 2;
+  optional string phone_number = 3;
+  optional string email = 4;
+}
+
+message FindUsersResponse {
+  User user = 1;
+}
+
+message FindOneUserByPreferredUsernameRequest {
+  string preferred_username = 1;
+}
+
+message FindOneUserByPreferredUsernameResponse {
+  User user = 1;
+}
+
+message UserOrganizationResponse {
+  string organization_id = 1;
+  string organization_name = 2;
+}
+
+message FindUserOrganizationRequest {
+  string user_id = 1;
+  optional string relation_id = 2;
+  optional string organization_id = 3;
+  optional string nib = 4;
+  optional string npwp = 5;
+  optional string nitku = 6;
+}
+
+message MultiLanguageMessage {
+  string id = 1;
+  string en = 2;
+}
+
+message FindUserOrganizationResponse {
+  UserOrganizationResponse user_organization = 1;
+  optional MultiLanguageMessage message = 2;
+}
+
+message FindEncryptionProviderRequest {
+
+}
+
+message FindEncryptionProviderResponse {
+  string enc_provider = 1;
+}
+
+message FindNotificationPreferencesRequest {
+  string user_id = 1;
+}
+
+message FindNotificationPreferencesResponse {
+  string userId = 1;
+  bool sms = 2;
+  bool whatsapp = 3;
+  bool mobile = 4;
+  bool web = 5;
+  bool email = 6;
+  bool notify_subscription = 7;
+  bool mfa = 8;
+}
+
+message FindRelatedUserIdRequest {
+  string user_id = 1;
+}
+
+message FindRelatedUserIdResponse {
+  bool status = 1;
+  string message = 2;
+  repeated string data = 3;
+}
+
+message BulkFindUsersRequest {
+  repeated string user_ids = 1;
+}
+
+message BulkFindUsersResponse {
+  bool status = 1;
+  string message = 2;
+  repeated User data = 3;
+}
+
+message BulkUpdateUsersRequest {
+  repeated User users = 1;
+}
+
+message BulkUpdateUsersResponse {
+  bool status = 1;
+  string message = 2;
+}
+
+message BulkFindUserIdsRequest {
+
+}
+
+message BulkFindUserIdsResponse {
+  repeated string ids = 1;
+}

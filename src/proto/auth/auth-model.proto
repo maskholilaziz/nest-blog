@@ -1,0 +1,17 @@
+syntax = "proto3";
+package auth;
+
+message MultiLanguageMessage {
+  string id = 1;
+  string en = 2;
+}
+
+message CheckAuthRequest {
+  string request = 1;
+}
+
+message CheckAuthResponse {
+  bool status = 1;
+  string request = 2;
+  MultiLanguageMessage message = 3;
+}

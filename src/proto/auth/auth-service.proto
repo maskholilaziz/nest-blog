@@ -1,0 +1,8 @@
+syntax = "proto3";
+import "auth-model.proto";
+
+package auth;
+
+service CheckAuthService {
+  rpc CheckAuth(CheckAuthRequest) returns (CheckAuthResponse) {}
+}
